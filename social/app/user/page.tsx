@@ -7,10 +7,8 @@ import React from 'react'
 async function page() {
     const browserUser = await getBrowserUser();
     console.log(browserUser)
+
     return (
-
-
-
 
 
         <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -35,7 +33,7 @@ async function page() {
                             <thead className="bg-gray-50">
                                 <tr>
                                     {/* Header part insdie t-head  */}
-                                    {['ID', 'Name', 'Email', 'location', 'photo', 'Delete'].map((header) => (
+                                    {['ID', 'Name', 'Email', 'location', 'photo', 'Delete','Edit'].map((header) => (
                                         <th key={header} className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                                             {header}
                                         </th>
@@ -64,9 +62,13 @@ async function page() {
                                                     Delete
                                                 </button>
                                             </form>
-
                                         </td>
-
+                                                                                        {/* For Edit  */}
+                                        <td className="px-6 py-5 whitespace-nowrap">
+                                            <Link href={`/user/uedit/${items.id}`} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">
+                                               Edit
+                                            </Link>
+                                        </td>
                                     </tr>
                                 })}
 

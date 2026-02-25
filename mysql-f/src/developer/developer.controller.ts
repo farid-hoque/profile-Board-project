@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 import { DeveloperService } from './developer.service';
+ 
 
 @Controller('developer')
 export class DeveloperController {
@@ -23,6 +24,7 @@ export class DeveloperController {
   findOne(@Param('id') id: string | number) {
     return this.devService.findOne(+id)
   }
+  /**--------------------------Post------------------- */
 /**
  * 
  * @param data 
@@ -33,6 +35,19 @@ export class DeveloperController {
   create(@Body() data) {
     return this.devService.create(data);
   }
+
+  /**----------------------------------------patch(method) */
+  /**
+   * 
+   * @param id 
+   * @param data 
+   */
+  @Patch(':id')
+  update(@Param('id', ParseIntPipe) id: string  , @Body() data) {
+      return this.devService.update(+id,data)
+  }
+  
+  /**------------------------Delete----------------- */
 /**
  * 
  * @param id 
