@@ -9,6 +9,7 @@ datasource db {
 
 /**
  * Make shcema model then process to env file and next comand pnpm dlx prisma generate and pnpm dlx prism mygrate dev --name init
+ // ১. ইউজার টেবিল (যিনি পোস্ট লিখবেন)
  */
 model User {
   id        Int      @id @default(autoincrement())
@@ -19,8 +20,28 @@ model User {
   photo     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  // ১. রিলেশনশিপ যোগ করা: একজন ইউজারের অনেক পোস্ট থাকতে পারে-one to many
+  posts     Post[]
 
   @@map("users")
+}
+
+/**
+ * Make post shcema or post model include পোস্টের কন্টেন্ট এবং ইমেজের পাশাপাশি লেখকের আইডি (authorId) থাকবে। and relation with user and post=একই সাথে User মডেলটিকেও আপডেট করতে হবে যাতে আমরা বুঝতে পারি একজন ইউজারের অনেকগুলো পোস্ট থাকতে পারে
+ */
+// ২. পোস্ট টেবিল (যা ইউজার লিখবেন)
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  coment    String   @db.Text // বড় লেখার জন্য @db.Text ব্যবহার করা ভালো
+  image     String? // পোস্টের ছবি (ঐচ্ছিক হতে পারে)
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+  // ২. রিলেশনশিপ সেটআপ: এই পোস্টটি কোন ইউজারের?
+  author User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  @@map("posts")
 }
 
 model Student {

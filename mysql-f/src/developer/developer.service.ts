@@ -56,7 +56,7 @@ export class DeveloperService {
     }
 
 /**
- * 
+ * @Delete 
  * @param id 
  * @returns 
  * REMOVE OR delete use Delete()-Method

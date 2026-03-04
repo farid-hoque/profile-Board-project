@@ -49,7 +49,7 @@ export class DeveloperController {
   
   /**------------------------Delete----------------- */
 /**
- * 
+ * @Delete
  * @param id 
  * @returns 
  * delete by single id

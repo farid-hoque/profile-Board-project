@@ -115,3 +115,32 @@ const prisma = new PrismaClient({ adapter });
 
 export { prisma }
 ### USEING CORS WITH MAIN.TS FILE
+
+### 📋 Post Feature Implementation Roadmap (Cheat Sheet)
+১. ডাটাবেস লেয়ার (Prisma)
+User Model Update: posts Post[] যোগ করে রিলেশন তৈরি করা।
+
+Post Model Creation: id, title, content, image, এবং authorId ফিল্ড রাখা।
+
+Relationship: author User @relation(fields: [authorId], references: [id]) দিয়ে কানেকশন করা।
+
+২. ব্যাকএন্ড লেয়ার (NestJS)
+Folder: src/post/ নামে আলাদা ফোল্ডার।
+
+Files: post.module.ts, post.controller.ts, post.service.ts এবং post.entity.ts।
+
+Service Logic: Prisma ব্যবহার করে create, findMany, এবং delete মেথড লেখা।
+
+৩. ফ্রন্টএন্ড লেয়ার (Next.js)
+UI Form: PostForm.tsx তৈরি করা যেখানে ইউজার কন্টেন্ট ও ইমেজ ইনপুট দিবে।
+
+Server Action: postAction.tsx ফাইলে ইমেজটি ক্লাউডিনারিতে আপলোড করে ব্যাকএন্ডে ডাটা পাঠানো।
+
+Server Component (SC): postServerComponent.ts দিয়ে নেক্সট জেএস থেকে নেস্ট জেএস এপিআই কল করা।
+
+৪. গুরুত্বপূর্ণ টার্মিনাল কমান্ডস
+Resource Generate: nest g resource post --no-spec (REST API সিলেক্ট করবেন)।
+
+Prisma Update: npx prisma generate (স্কিমা পরিবর্তনের পর)।
+
+ভাই, এই শিটটা আপনার নোটবুকে বা কোনো ফাইলে সেভ করে রাখুন। এখন কি আপনি post.service.ts ফাইলের আসল কোডটা দিয়ে কাজ শুরু করতে চান?
