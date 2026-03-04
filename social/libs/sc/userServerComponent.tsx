@@ -1,5 +1,5 @@
 
-import axios from "axios";
+ import axios from "axios";
 
 
 
@@ -40,16 +40,12 @@ export async function getBrowserUser() {
 
 
 /**
+ * @Delete
  * Data Delete from  Browser ui 
  * API Call এর জন্য আলাদা ফাংশন
  */
 export async function userDelete(id: number) {
-  /*
-  1.Hit Api
-  2.Eror Handling
-  3.Return Data
-  API Call এর জন্য আলাদা ফাংশন
-   */
+  
   const respponse = await axios.delete(`http://localhost:4040/developer/${id}`)
   if (!respponse.data) throw new Error("Delete Way not Working");
   return respponse.data;
@@ -68,6 +64,9 @@ export async function getSingleUser(id: string) {
   if (!response.data) throw new Error("Bad Request");
   return response.data
 }
+
+
+
 /**
  * 
  * @param id use For Update(merhod) or || eidt method

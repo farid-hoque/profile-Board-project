@@ -33,7 +33,7 @@ async function page() {
                             <thead className="bg-gray-50">
                                 <tr>
                                     {/* Header part insdie t-head  */}
-                                    {['ID', 'Name', 'Email', 'location', 'photo', 'Delete','Edit'].map((header) => (
+                                    {['ID', 'Name', 'Email', 'location', 'photo', 'Delete','Edit','Post'].map((header) => (
                                         <th key={header} className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
                                             {header}
                                         </th>
@@ -69,6 +69,14 @@ async function page() {
                                                Edit
                                             </Link>
                                         </td>
+                                                    {/* post part alada part nije nije kora  */}
+                                        <td className="px-6 py-5 whitespace-nowrap text-sm text-gray-500"> 
+                                            <Link href={`/post/pcreate?authorId=${items.id}`}   className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 cursor-pointer">
+                                                Post
+                                            </Link>
+                                        </td>
+
+
                                     </tr>
                                 })}
 
@@ -102,3 +110,4 @@ async function page() {
 }
 
 export default page
+// এক কথায় সহজ ব্যাখ্যা: এই লাইনটির মানে হলো— "হে বাটন, যখন কেউ তোমাতে ক্লিক করবে, তখন তাকে /post/pcreate পেজে নিয়ে যাও এবং সাথে করে এই ইউজারের আইডি নম্বরটিও নিয়ে যাও, যাতে নতুন পেজটি বুঝতে পারে কোন ইউজার পোস্টটি করছে।"

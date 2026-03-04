@@ -46,3 +46,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 1.First work on user_action 2.server_component
 1.FIle uplaod use cloudinary
 1.server component for data rendering 2.server action for data mutetion-(data Base a data save kora) or user interaction handle
+
+## post logic
+📂 সঠিক ফোল্ডার স্ট্রাকচার:
+app/post/page.tsx: এখানে সব পোস্টের একটি টেবিল বা লিস্ট থাকবে (যেমনটা আপনার user/page.tsx-এ আছে)।
+
+app/post/pcreate/page.tsx: এখানে শুধু পোস্ট তৈরি করার ফর্ম থাকবে। যখন আপনি ইউজার টেবিলের "Post" বাটনে ক্লিক করবেন, তখন সে এই পেজে চলে আসবে।
+
+app/post/pedit/[id]/page.tsx: কোনো পোস্ট ভুল হলে সেটা এডিট করার জন্য এই পেজটি লাগবে।
